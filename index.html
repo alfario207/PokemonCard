@@ -4,37 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon</title>
+    <link rel="icon" type="image/svg" href="src/img/pokeball.png">
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"/>
   </head>
   <body>
     <main class="main">
       <header class="header">
-        <div class="container">
-          <div class="logo">
-            <img src="src/img/pokemon-1.svg" />
-            <div class="search">
-              <img src="src/img/search.svg" />
-              <input
-                class="search-input"
-                type="search"
-                placeholder="search pokemon names"
-                id="search-input"
-              />
-            </div>
-          </div>
+        <div class="logo">
+          <img src="src/img/pokemon-1.svg" />
+          <div class="search">
+            <img src="src/img/search.svg" class="search-img"/>
+            <input
+              class="search-input"
+              
+              placeholder="search Pokémon names"
+              id="search-input"
+            />
+            <img src="src/img/close.svg" class="close-button-visible" id="close-button"/>
+          </div> 
         </div>
       </header>
     </main>
-    <section class="items">
-      <div class="list-items" id='wrapper'></div>
-    </section>
+    <div class="border-items">
+      <section class="items">
+        <div class="list" id='wrapper'></div>
+        <div class="not-found">
+          <p>Sorry,  Pokémon  Not  Found</p>
+          <img src="src/img/notFound.png" style="width: 40%;"/>
+        </div>
+      </section>
+    </div>
 
-    <script src="src/pokemon.js"></script>
+    <script src="src/js/pokemon.js"></script>
   </body>
 </html>
