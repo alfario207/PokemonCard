@@ -44,7 +44,7 @@ navigatePokemon = (id) => {
 
 
 const loadPokemon = async (id) => {
-    console.log("ID LOAD",id)
+    // console.log("ID LOAD",id)
     try {
         const pokemonRespos = await fetch (`https://pokeapi.co/api/v2/pokemon/${id}`)
         const pokemon = await pokemonRespos.json()
@@ -52,6 +52,29 @@ const loadPokemon = async (id) => {
         const pokemonSpecies = await speciesRespons.json()
         console.log(pokemon)
         console.log(pokemonSpecies)
+
+        // const {flavor_text_entries} = pokemonSpecies
+        // console.log(flavor_text_entries)
+        // flavor_text_entries.map(({flavor_text}) => {
+        //     const description = pokemonSpecies.flavor_text_entries[1].flavor_text
+
+        //     const descriptionPokemon = document.querySelector(".pokemon-description")
+        //     descriptionPokemon.textContent = description
+
+        //     console.log(descriptionPokemon)
+
+        //     console.log(description)
+        // })
+
+        const {flavor_text_entries} = pokemonSpecies 
+        const englishDescription = flavor_text_entries.find(entry => entry.language.name === "en").flavor_text
+        const cleanText = englishDescription.replace(/\f/g, ' ');
+
+        const pokemonDescription = document.querySelector(".pokemon-description")
+        pokemonDescription.textContent = cleanText
+
+        console.log(cleanText)
+        console.log(englishDescription)
 
         displayPokemonsDetails(pokemon)
 
@@ -109,7 +132,7 @@ const displayPokemonsDetails = (pokemon) => {
     abilities.map(({ability}, index) => {
         // console.log(index)
         // console.log(ability.name)
-        console.log(abilitiesDetail)
+        // console.log(abilitiesDetail)
         const para = document.createElement("p")
         para.classList = "move-fonts"
         para.innerHTML = ability.name
@@ -126,7 +149,7 @@ const displayPokemonsDetails = (pokemon) => {
         tp.innerHTML = type.name
 
         const color = typeColors[type.name]
-        console.log("COLOR", color, tp)
+        // console.log("COLOR", color, tp)
         tp.style.backgroundColor = color
 
         

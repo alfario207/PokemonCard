@@ -481,10 +481,27 @@ p {
   /* background-color: green; */
 }
 
+.description {
+  width: auto;
+  height: auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-inline: 15px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+
 .stats-pokemon {
   padding-inline: 15px;
   padding-block: 20px;
   /* margin-top: 10px; */
+}
+
+.base-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stats-content {
