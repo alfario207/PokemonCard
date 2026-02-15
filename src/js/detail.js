@@ -44,7 +44,6 @@ navigatePokemon = (id) => {
 
 
 const loadPokemon = async (id) => {
-    // console.log("ID LOAD",id)
     try {
         const pokemonRespos = await fetch (`https://pokeapi.co/api/v2/pokemon/${id}`)
         const pokemon = await pokemonRespos.json()
@@ -52,19 +51,6 @@ const loadPokemon = async (id) => {
         const pokemonSpecies = await speciesRespons.json()
         console.log(pokemon)
         console.log(pokemonSpecies)
-
-        // const {flavor_text_entries} = pokemonSpecies
-        // console.log(flavor_text_entries)
-        // flavor_text_entries.map(({flavor_text}) => {
-        //     const description = pokemonSpecies.flavor_text_entries[1].flavor_text
-
-        //     const descriptionPokemon = document.querySelector(".pokemon-description")
-        //     descriptionPokemon.textContent = description
-
-        //     console.log(descriptionPokemon)
-
-        //     console.log(description)
-        // })
 
         const {flavor_text_entries} = pokemonSpecies 
         const englishDescription = flavor_text_entries.find(entry => entry.language.name === "en").flavor_text
@@ -111,9 +97,7 @@ const capitalize = (string) => {
 
 const displayPokemonsDetails = (pokemon) => {
     const {name, id, weight, height, abilities, types, stats} = pokemon
-    // console.log("st",stats)
     const capitalizeName = capitalize(name)
-    // console.log("pokemons", capitalizeName)
     document.querySelector("title").textContent = capitalizeName
     document.querySelector(".name-detail .name").textContent = capitalizeName
     document.querySelector(".pokemon-id .pokemon2-fonts").textContent = `#${String(id).padStart(3, "0")}`
@@ -130,9 +114,6 @@ const displayPokemonsDetails = (pokemon) => {
     
     const abilitiesDetail = document.querySelector(".detail-move-wrap .detail-move");
     abilities.map(({ability}, index) => {
-        // console.log(index)
-        // console.log(ability.name)
-        // console.log(abilitiesDetail)
         const para = document.createElement("p")
         para.classList = "move-fonts"
         para.innerHTML = ability.name
@@ -141,15 +122,12 @@ const displayPokemonsDetails = (pokemon) => {
     
     
     const typePokemon = document.querySelector(".type-pokemon")
-    // typePokemon.innerHTML = ""
     types.map(({type}, index) => {
-        // console.log(type.name)
         const tp = document.createElement("p")
         tp.className = "type-font"
         tp.innerHTML = type.name
 
         const color = typeColors[type.name]
-        // console.log("COLOR", color, tp)
         tp.style.backgroundColor = color
 
         
@@ -167,7 +145,6 @@ const displayPokemonsDetails = (pokemon) => {
     }
     
     stats.map(({stat, base_stat}) => {
-        // console.log(base_stat)
         const statDiv = document.createElement("div")
         statDiv.className = "stats-content"
         statistic.append(statDiv)
@@ -187,8 +164,6 @@ const displayPokemonsDetails = (pokemon) => {
         prog.setAttribute("value", base_stat)
         prog.setAttribute("max", "100")
         statDiv.append(prog)
-                
-        // console.log(base_stat)
 
     })
     typeBackgroundColor(pokemon)      

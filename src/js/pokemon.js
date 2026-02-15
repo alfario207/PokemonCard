@@ -13,10 +13,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=500").then((response) => response
   });
 
 const displayPokemons = (params) => {
-  // console.log(params);
   items.textContent = "";
-  // console.log(params);
-
   params.forEach((param) => {
     const pokemonsID = param.url.split("/")[6];
     const list = document.createElement("div");
