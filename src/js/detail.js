@@ -174,7 +174,7 @@ const typeBackgroundColor = (pokemon) => {
     const mainType = pokemon.types[0].type.name
     const color = typeColors[mainType]
     
-    const main = document.querySelector(".detail-main")
+    const main = document.querySelector("body")
     main.style.backgroundColor = color
 
     const about = document.querySelector(".about h3")
